@@ -46,7 +46,13 @@ class Deck:
         self.deck = self.shuffle(self.make_deck())
 
     def __str__(self):
-        deck_str = ""
-        for card in self.deck:
-            deck_str += str(card)
-        return deck_str
+        self.card_string(self.deck)
+
+    def card_string(self, cards: list[Card]):
+        card_string = ""
+        for card in cards:
+            card_string += str(card)
+        return card_string
+
+    def print_cards(self, cards: list[Card]):
+        print(self.card_string(cards))
