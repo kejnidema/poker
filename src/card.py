@@ -3,9 +3,21 @@ from functools import total_ordering
 
 @total_ordering
 class Card:
-    def __init__(self, suite, value):
-        self.suite = suite
+    def __init__(self, value, suite):
+        if value not in range(14):
+            raise Exception("card value must be 1-13")
+        if suite not in [1,2,3,4,"spade","heart","club","diamond"]:
+            raise Exception("card suite must be 1,2,3,4 or spade, heart, club, diamond")
         self.value = value
+        if suite == 1:
+            suite = "spade"
+        elif suite == 2:
+            suite = "heart"
+        elif suite == 3:
+            suite = "club"
+        elif suite == 4:
+            suite = "diamond"
+        self.suite = suite
 
     def suite_to_symbol(self):
         if self.suite == "spade":

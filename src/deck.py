@@ -15,7 +15,7 @@ class Deck:
         deck = []
         for s in suites:
             for v in values:
-                deck.append(Card(s, v))
+                deck.append(Card(v, s))
         self.deck = deck
 
     def shuffle(self):
